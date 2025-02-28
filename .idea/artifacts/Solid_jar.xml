@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact name="Solid:jar">
+    <output-path>$PROJECT_DIR$/../../SpigotServer/plugins</output-path>
+    <root id="root">
+      <element id="archive" name="Solid.jar">
+        <element id="module-output" name="Solid" />
+      </element>
+      <element id="library" level="project" name="Maven: org.mongodb:bson:5.3.1" />
+      <element id="library" level="project" name="Maven: org.mongodb:mongodb-driver-sync:5.3.1" />
+      <element id="library" level="project" name="Maven: org.mongodb:bson-record-codec:5.3.1" />
+      <element id="library" level="project" name="Maven: org.mongodb:mongodb-driver-core:5.3.1" />
+    </root>
+  </artifact>
+</component>

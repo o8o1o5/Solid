@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Main-Class: com.o8o1o5.solid.Solid
+Class-Path: bson-5.3.1.jar mongodb-driver-sync-5.3.1.jar bson-record-cod
+ ec-5.3.1.jar mongodb-driver-core-5.3.1.jar
+

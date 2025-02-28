@@ -1,0 +1,44 @@
+name: Solid
+version: 1.0
+main: com.o8o1o5.solid.Solid
+api-version: 1.21
+authors: [o8o1o5]
+description: 커스텀 마인크래프트 플러그인
+commands:
+  balance:
+    description: 현재 잔액을 확인합니다.
+    usage: /balance
+  pay:
+    description: 플레이어에게 돈을 송금합니다.
+    usage: /pay <플레이어> <금액>
+  eco:
+    description: 관리자가 경제 데이터를 수정할 수 있도록 합니다.
+    usage: /eco <set|add|remove|balance> <플레이어> [금액]
+    permission: solid.eco
+    permission-message: 이 명령어를 사용할 권한이 없습니다.
+  deposit:
+    description: 현금을 계좌에 예치합니다.
+    usage: /deposit
+  withdraw:
+    description: 계좌에서 현금을 출금합니다.
+    usage: /withdraw <금액>
+  spawnshop:
+    description: 상점을 소환합니다.
+    usage: /spawnshop <상점 ID>
+    permission: solid.spawnshop
+    permission-message: 이 명령어를 사용할 권한이 없습니다.
+  createshop:
+    description: 상점을 생성합니다.
+    usage: /createshop <상점 ID> <상점 이름> <직업>
+    permission: solid.createshop
+    permission-message: 이 명령어를 사용할 권한이 없습니다.
+permissions:
+  solid.eco:
+    description: 경제 시스템을 조작할 권한
+    default: op
+  solid.spawnshop:
+    description: 상점 NPC를 소환할 권한
+    default: op
+  solid.createshop:
+    description: 상점 NPC를 생성할 권한
+    default: op
