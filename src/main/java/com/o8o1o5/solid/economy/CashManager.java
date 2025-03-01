@@ -1,6 +1,6 @@
 package com.o8o1o5.solid.economy;
 
-import com.o8o1o5.solid.database.DatabaseManager;
+import com.o8o1o5.solid.database.BalanceDatabaseManager;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.*;
 
 public class CashManager {
-    private final DatabaseManager db;
+    private final BalanceDatabaseManager db;
 
     private static final Map<Material, Integer> cashValues = new LinkedHashMap<>();
 
@@ -20,7 +20,7 @@ public class CashManager {
         cashValues.put(Material.NETHER_STAR, 1000000);
     }
 
-    public CashManager(DatabaseManager databaseManager) {
+    public CashManager(BalanceDatabaseManager databaseManager) {
         this.db = databaseManager;
     }
 

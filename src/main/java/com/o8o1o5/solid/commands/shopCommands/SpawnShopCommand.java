@@ -1,4 +1,4 @@
-package com.o8o1o5.solid.commands;
+package com.o8o1o5.solid.commands.shopCommands;
 
 import com.o8o1o5.solid.shop.ShopNPCManager;
 import org.bukkit.ChatColor;
@@ -28,16 +28,22 @@ public class SpawnShopCommand implements CommandExecutor {
         }
 
         Player player = (Player) sender;
-        String npcId = args[0];
         Location location = player.getLocation();
 
-        boolean success = shopNPCManager.spawnShop(npcId, location);
-        if (!success) {
-            player.sendMessage(ChatColor.RED + "해당 ID의 상점이 존재하지 않습니다! (ID: " + npcId + ")");
+        try {
+            int npcId = Integer.parseInt(args[0]);
+
+            boolean success = shopNPCManager.spawnShopNPC(npcId, location);
+            if (!success) {
+                player.sendMessage(ChatColor.RED + "해당 ID를 가진 NPC를 찾을 수 없습니다.");
+                return true;
+            }
+
+            player.sendMessage(ChatColor.GREEN + "상점 NPC가 소환되었습니다.");
+            return true;
+        } catch (NumberFormatException e) {
+            player.sendMessage(ChatColor.RED + "<NPC ID>는 숫자여야 합니다.");
             return true;
         }
-
-        player.sendMessage(ChatColor.GREEN + "상점 NPC 소환됨! (ID: " + npcId + ")");
-        return true;
     }
 }

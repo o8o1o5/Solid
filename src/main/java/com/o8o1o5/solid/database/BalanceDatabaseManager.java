@@ -8,12 +8,12 @@ import org.bson.Document;
 
 import java.util.UUID;
 
-public class DatabaseManager {
-    private static DatabaseManager instance;
+public class BalanceDatabaseManager {
+    private static BalanceDatabaseManager instance;
     private MongoDatabase database;
     private MongoCollection<Document> collection;
 
-    public DatabaseManager(MongoDatabase db) {
+    public BalanceDatabaseManager(MongoDatabase db) {
         this.database = db;
         this.collection = database.getCollection("player_balance");
     }

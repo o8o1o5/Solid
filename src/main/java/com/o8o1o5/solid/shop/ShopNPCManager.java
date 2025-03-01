@@ -1,9 +1,10 @@
 package com.o8o1o5.solid.shop;
 
 import com.mongodb.client.MongoDatabase;
-import com.o8o1o5.solid.shop.ShopDataManager;
+import com.o8o1o5.solid.database.ShopNPCDatabaseManager;
 import org.bson.Document;
 import org.bukkit.*;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Villager;
 import org.bukkit.persistence.PersistentDataType;
@@ -14,45 +15,37 @@ import java.util.Map;
 
 public class ShopNPCManager {
     private final JavaPlugin plugin;
-    private final ShopDataManager shopDataManager;
+    private final ShopNPCDatabaseManager shopNPCDatabaseManager;
     private final NamespacedKey npcKey;
-    private final Map<String, Villager> shopNpcs = new HashMap<>();
+    private final Map<Integer, Villager> shopNpcs = new HashMap<>();
 
     public ShopNPCManager(JavaPlugin plugin, MongoDatabase database) {
         this.plugin = plugin;
-        this.shopDataManager = new ShopDataManager(database);
+        this.shopNPCDatabaseManager = new ShopNPCDatabaseManager(database);
         this.npcKey = new NamespacedKey(plugin, "shop_npc");
-        loadShopsFromDatabase();
     }
 
-    private void loadShopsFromDatabase() {
-        Map<String, Document> shops = shopDataManager.loadShops();
-        for (Map.Entry<String, Document> entry : shops.entrySet()) {
-            spawnShopFromDatabase(entry.getValue());
-        }
-    }
-
-    public boolean spawnShop(String id, Location location) {
-        Document shopData = shopDataManager.getShop(id);
-        if (shopData == null) {
+    public boolean spawnShopNPC(int id, Location location) {
+        Document shopNPCData = shopNPCDatabaseManager.getShop(id);
+        if (shopNPCData == null) {
             plugin.getLogger().warning("상점 ID '" + id + "'를 찾을 수 없습니다!");
             return false;
         }
-        spawnShopFromDatabase(shopData);
+        spawnShopNPCFromDatabase(shopNPCData);
         return true;
     }
 
-    private void spawnShopFromDatabase(Document shopData) {
-        String id = shopData.getString("id");
-        String name = shopData.getString("name");
-        String job = shopData.getString("job");
-        String worldName = shopData.getString("world");
+    private void spawnShopNPCFromDatabase(Document shopNPCData) {
+        int id = shopNPCData.getInteger("id");
+        String name = shopNPCData.getString("name");
+        String job = shopNPCData.getString("job");
+        String worldName = shopNPCData.getString("world");
 
-        double x = shopData.containsKey("x") ? ((Number) shopData.get("x")).doubleValue() : 0.0;
-        double y = shopData.containsKey("y") ? ((Number) shopData.get("y")).doubleValue() : 0.0;
-        double z = shopData.containsKey("z") ? ((Number) shopData.get("z")).doubleValue() : 0.0;
-        float yaw = shopData.containsKey("yaw") ? ((Number) shopData.get("yaw")).floatValue() : 0.0f;
-        float pitch = shopData.containsKey("pitch") ? ((Number) shopData.get("pitch")).floatValue() : 0.0f;
+        double x = shopNPCData.containsKey("x") ? ((Number) shopNPCData.get("x")).doubleValue() : 0.0;
+        double y = shopNPCData.containsKey("y") ? ((Number) shopNPCData.get("y")).doubleValue() : 0.0;
+        double z = shopNPCData.containsKey("z") ? ((Number) shopNPCData.get("z")).doubleValue() : 0.0;
+        float yaw = shopNPCData.containsKey("yaw") ? ((Number) shopNPCData.get("yaw")).floatValue() : 0.0f;
+        float pitch = shopNPCData.containsKey("pitch") ? ((Number) shopNPCData.get("pitch")).floatValue() : 0.0f;
 
         if (worldName == null) {
             Bukkit.getLogger().warning("상점 '" + id + "'의 월드 정보가 없습니다!");
@@ -78,8 +71,23 @@ public class ShopNPCManager {
         shopNpcs.put(id, villager);
     }
 
+    public boolean RemoveShopNPC(int id) {
+        return RemoveShopNPCFromDatabase(id);
+    }
+
+    private boolean RemoveShopNPCFromDatabase(int id) {
+        Document shopNPCData = shopNPCDatabaseManager.getShop(id);
+
+        if (shopNPCData == null) {
+            Bukkit.getLogger().warning("ID " + id + "에 해당하는 상점 NPC를 DB에서 찾을 수 없습니다.");
+            return false;
+        }
+
+        shopNPCDatabaseManager.removeShop(id);
+        return true;
+    }
+
     public boolean isShopNPC(Villager villager) {
         return villager.getPersistentDataContainer().has(npcKey, PersistentDataType.BYTE);
     }
-
 }

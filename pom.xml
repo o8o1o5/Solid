@@ -54,6 +54,14 @@
                         <goals>
                             <goal>shade</goal>
                         </goals>
+                        <configuration>
+                            <relocations>
+                                <relocation>
+                                    <pattern>com.mongodb</pattern>
+                                    <shadedPattern>com.o8o1o5.libs.mongodb</shadedPattern>
+                                </relocation>
+                            </relocations>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -69,7 +77,6 @@
                         </goals>
                         <configuration>
                             <target>
-                                <!-- 새로운 JAR 복사 -->
                                 <copy file="target/Solid-1.0-SNAPSHOT.jar"
                                       todir="C:\SpigotServer\plugins"/>
                             </target>

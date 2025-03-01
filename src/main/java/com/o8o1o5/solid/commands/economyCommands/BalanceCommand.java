@@ -1,4 +1,4 @@
-package com.o8o1o5.solid.commands;
+package com.o8o1o5.solid.commands.economyCommands;
 
 import com.o8o1o5.solid.economy.EconomyManager;
 import org.bukkit.ChatColor;

@@ -25,20 +25,22 @@ commands:
   spawnshop:
     description: 상점을 소환합니다.
     usage: /spawnshop <상점 ID>
-    permission: solid.spawnshop
+    permission: solid.shop
     permission-message: 이 명령어를 사용할 권한이 없습니다.
   createshop:
     description: 상점을 생성합니다.
     usage: /createshop <상점 ID> <상점 이름> <직업>
-    permission: solid.createshop
+    permission: solid.shop
+    permission-message: 이 명령어를 사용할 권한이 없습니다.
+  removeshop:
+    description: 상점을 삭제합니다.
+    usage: /removeshop <상점 ID>
+    permission: solid.shop
     permission-message: 이 명령어를 사용할 권한이 없습니다.
 permissions:
   solid.eco:
     description: 경제 시스템을 조작할 권한
     default: op
-  solid.spawnshop:
-    description: 상점 NPC를 소환할 권한
-    default: op
-  solid.createshop:
-    description: 상점 NPC를 생성할 권한
+  solid.shop:
+    description: 상점 시스템을 조작할 권한
     default: op
