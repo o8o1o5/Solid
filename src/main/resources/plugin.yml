@@ -22,19 +22,9 @@ commands:
   withdraw:
     description: 계좌에서 현금을 출금합니다.
     usage: /withdraw <금액>
-  spawnshop:
-    description: 상점을 소환합니다.
-    usage: /spawnshop <상점 ID>
-    permission: solid.shop
-    permission-message: 이 명령어를 사용할 권한이 없습니다.
-  createshop:
-    description: 상점을 생성합니다.
-    usage: /createshop <상점 ID> <상점 이름> <직업>
-    permission: solid.shop
-    permission-message: 이 명령어를 사용할 권한이 없습니다.
-  removeshop:
-    description: 상점을 삭제합니다.
-    usage: /removeshop <상점 ID>
+  shop:
+    description: 상점을 설정합니다.
+    usage: /shop
     permission: solid.shop
     permission-message: 이 명령어를 사용할 권한이 없습니다.
 permissions:

@@ -1,4 +1,4 @@
-package com.o8o1o5.solid.commands.economyCommands;
+package com.o8o1o5.solid.commands;
 
 import com.o8o1o5.solid.economy.EconomyManager;
 import org.bukkit.Bukkit;
