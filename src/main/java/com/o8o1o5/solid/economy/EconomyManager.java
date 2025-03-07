@@ -1,11 +1,8 @@
 package com.o8o1o5.solid.economy;
 
-import com.o8o1o5.solid.database.BalanceDatabaseManager;
-
 import java.util.UUID;
 
 public class EconomyManager {
-    private static EconomyManager instance;
     private final BalanceDatabaseManager databaseManager;
 
     public EconomyManager(BalanceDatabaseManager databaseManager) {

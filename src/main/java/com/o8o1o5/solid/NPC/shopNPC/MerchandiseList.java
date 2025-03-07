@@ -14,26 +14,70 @@ public class MerchandiseList {
 
     static {
         merchandiseMap.put(10000, Arrays.asList(
-                new MerchandiseStack(
-                        new ItemStack(Material.NETHERITE_BLOCK, 3) {{
-                            ItemMeta meta = getItemMeta();
-                            if (meta != null) {
-                                meta.setDisplayName("⚡ 강화된 네더라이트 블록");
-                                meta.setLore(Arrays.asList(
-                                        "§7이 아이템은 특별한 효과가 있습니다.",
-                                        "§e사용 시 강력한 능력이 발휘될 수 있음!"
-                                ));
-                                meta.addEnchant(Enchantment.UNBREAKING, 1, true);
-                                meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-                                setItemMeta(meta);
-                            }
-                        }},
-                        1000, 500, true, false
-                ),
-                new MerchandiseStack(new ItemStack(Material.DIAMOND, 5), 500, 250, true, true),
-                new MerchandiseStack(new ItemStack(Material.GOLDEN_APPLE, 1), 200, 100, true, true),
-                new MerchandiseStack(new ItemStack(Material.WOODEN_SHOVEL, 1), 50, 20, true, true)
+            new MerchandiseStack(new ItemStack(Material.COAL), 15, 0, true, false),
+            new MerchandiseStack(new ItemStack(Material.COAL_BLOCK), 135, 0, true, false),
+            new MerchandiseStack(new ItemStack(Material.COPPER_INGOT), 30, 0, true, false),
+            new MerchandiseStack(new ItemStack(Material.COPPER_BLOCK), 270, 0, true, false),
+            new MerchandiseStack(new ItemStack(Material.IRON_INGOT), 220, 0, true, false),
+            new MerchandiseStack(new ItemStack(Material.IRON_BLOCK), 1980, 0, true, false),
+            new MerchandiseStack(new ItemStack(Material.GOLD_INGOT), 340, 0, true, false),
+            new MerchandiseStack(new ItemStack(Material.GOLD_BLOCK), 3060, 0, true, false),
+            new MerchandiseStack(new ItemStack(Material.REDSTONE), 190, 0, true, false),
+            new MerchandiseStack(new ItemStack(Material.REDSTONE_BLOCK), 1710, 0, true, false),
+            new MerchandiseStack(new ItemStack(Material.LAPIS_LAZULI), 180, 0, true, false),
+            new MerchandiseStack(new ItemStack(Material.LAPIS_BLOCK), 1620, 0, true, false),
+            new MerchandiseStack(new ItemStack(Material.DIAMOND), 1750, 0, true, false),
+            new MerchandiseStack(new ItemStack(Material.DIAMOND_BLOCK), 15750, 0, true, false),
+            new MerchandiseStack(new ItemStack(Material.EMERALD), 4300, 0, true, false),
+            new MerchandiseStack(new ItemStack(Material.EMERALD_BLOCK), 38700, 0, true, false),
+            new MerchandiseStack(new ItemStack(Material.NETHERITE_INGOT), 25000, 0, true, false),
+            new MerchandiseStack(new ItemStack(Material.NETHERITE_BLOCK), 225000, 0, true, false)
         ));
+
+        merchandiseMap.put(10001, Arrays.asList(
+                new MerchandiseStack(new ItemStack(Material.WHEAT_SEEDS), 1, 0, true, false),
+                new MerchandiseStack(new ItemStack(Material.PUMPKIN_SEEDS), 1, 0, true, false),
+                new MerchandiseStack(new ItemStack(Material.MELON_SEEDS), 1, 0, true, false),
+                new MerchandiseStack(new ItemStack(Material.BEETROOT_SEEDS), 1, 0, true, false),
+                new MerchandiseStack(new ItemStack(Material.WHEAT), 15, 0, true, false),
+                new MerchandiseStack(new ItemStack(Material.HAY_BLOCK), 135, 0, true, false),
+                new MerchandiseStack(new ItemStack(Material.POTATO), 11, 0, true, false),
+                new MerchandiseStack(new ItemStack(Material.CARROT), 12, 0, true, false),
+                new MerchandiseStack(new ItemStack(Material.APPLE), 15, 0, true, false),
+                new MerchandiseStack(new ItemStack(Material.MELON_SLICE), 14, 0, true, false),
+                new MerchandiseStack(new ItemStack(Material.MELON), 140, 0, true, false),
+                new MerchandiseStack(new ItemStack(Material.PUMPKIN), 75, 0, true, false),
+                new MerchandiseStack(new ItemStack(Material.BEETROOT), 25, 0, true, false),
+                new MerchandiseStack(new ItemStack(Material.SUGAR_CANE), 13, 0, true, false),
+                new MerchandiseStack(new ItemStack(Material.COCOA_BEANS), 35, 0, true, false),
+                new MerchandiseStack(new ItemStack(Material.CACTUS), 180, 0, true, false),
+                new MerchandiseStack(new ItemStack(Material.SWEET_BERRIES), 20, 0, true, false)
+        ));
+
+        /*
+        merchandiseMap.put(10002, Arrays.asList(
+                new MerchandiseStack(new ItemStack(Material.BREAD), 60, 50, true, true),
+                new MerchandiseStack(new ItemStack(Material.COOKIE), 12, 10, true, true),
+                new MerchandiseStack(new ItemStack(Material.PUMPKIN_PIE), 300, 260, true, true),
+                new MerchandiseStack(new ItemStack(Material.GOLDEN_APPLE), 210, 180, true, true),
+                new MerchandiseStack(new ItemStack(Material.GOLDEN_CARROT), 150, 130, true, true),
+                new MerchandiseStack(new ItemStack(Material.GLISTERING_MELON_SLICE), 240, 210, true, true),
+                new MerchandiseStack(new ItemStack(Material.COOKED_BEEF), 265, 230, true, true),
+                new MerchandiseStack(new ItemStack(Material.COOKED_PORKCHOP), 250, 220, true, true),
+                new MerchandiseStack(new ItemStack(Material.COOKED_CHICKEN), 185, 160, true, true),
+                new MerchandiseStack(new ItemStack(Material.COOKED_MUTTON), 90, 80, true, true),
+                new MerchandiseStack(new ItemStack(Material.COOKED_RABBIT), 12, 10, true, true),
+                new MerchandiseStack(new ItemStack(Material.BAKED_POTATO), 470, 410, true, true),
+                new MerchandiseStack(new ItemStack(Material.COOKED_COD), 4100, 3500, true, true),
+                new MerchandiseStack(new ItemStack(Material.COOKED_SALMON), 470, 400, true, true),
+                new MerchandiseStack(new ItemStack(Material.DRIED_KELP), 80, 70, true, true),
+                new MerchandiseStack(new ItemStack(Material.RABBIT_STEW), 150, 130, true, true),
+                new MerchandiseStack(new ItemStack(Material.MUSHROOM_STEW), 370, 320, true, true),
+                new MerchandiseStack(new ItemStack(Material.SUSPICIOUS_STEW), 100, 90, true, true)
+        ));
+         */
+
+
     }
 
     public static List<MerchandiseStack> getMerchandiseListById(int id) {

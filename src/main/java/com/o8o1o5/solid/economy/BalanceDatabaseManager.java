@@ -1,4 +1,4 @@
-package com.o8o1o5.solid.database;
+package com.o8o1o5.solid.economy;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
